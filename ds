@@ -1,0 +1,17 @@
+[33mcommit da78584a7a0efa4aa8cf79889807cb7bb940d00c[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: sauryBhai <saurabhsharma200301@gmail.com>
+Date:   Sat Jan 8 18:32:39 2022 +0530
+
+    added config.js to render api
+
+[33mcommit 9c9fa8c4754f3c4fddd44ef9da3000c2ba6ce545[m
+Author: sauryBhai <saurabhsharma200301@gmail.com>
+Date:   Sat Jan 8 16:36:22 2022 +0530
+
+    Added Title and router
+
+[33mcommit 6d3fb7cafcec3a82c4d5be831c4db7b41c403081[m
+Author: sauryBhai <saurabhsharma200301@gmail.com>
+Date:   Thu Jan 6 18:31:09 2022 +0530
+
+    new Project :box office
