@@ -1,10 +1,11 @@
 import React from 'react'
 import ActorsCards from './ActorsCards'
 import IMAGE_NOT_FOUND from '../../image/not-found.png'
+import { FlexGrid } from '../styled'
 
 function ActorsGrid({data}) {
     return (
-        <div>
+        <FlexGrid>
             {
                 data.map( ({person})=><ActorsCards 
                 key={person.id}  
@@ -18,7 +19,7 @@ function ActorsGrid({data}) {
                 )
             }
 
-        </div>
+        </FlexGrid>
     )
 }
 
