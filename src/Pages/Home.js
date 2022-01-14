@@ -32,7 +32,7 @@ function Home() {
     }
 
     // eslint-disable-next-line no-console
-    console.log(searchOption);
+    // console.log(searchOption);
 
     const renderResults = () => {
         if (results && results.length === 0) {
