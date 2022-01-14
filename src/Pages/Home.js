@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useCallback } from 'react';
 import ActorsGrid from '../components/Actors/ActorsGrid';
 import CustomRadio from '../components/CustomRadio';
 import MainPageLayout from '../components/MainPageLayout';
@@ -6,6 +6,22 @@ import ShowsGrid from '../components/Shows/ShowsGrid';
 import { apiGet } from '../misc/config';
 import { useLastQuery } from '../misc/custom-hooks';
 import { RadioInputsWrapper, SearchButtonWrapper, SearchInput } from './Home.styled';
+
+
+const renderResults = (results) => {
+    if (results && results.length === 0) {
+        return <div>No results</div>;
+    }
+
+    if (results && results.length > 0) {
+        return results[0].show
+        ?<ShowsGrid data={results}/>
+        :<ActorsGrid data={results}/>
+        
+    }
+
+    return null;
+};
 
 function Home() {
     const [input, setInput] = useLastQuery();
@@ -20,9 +36,9 @@ function Home() {
         });
     };
 
-    const onInputChange = ev => {
+    const onInputChange = useCallback( ev => {
         setInput(ev.target.value);
-    };
+    },[setInput]);
 
     const onKeyDown = ev => {
         if (ev.keyCode === 13) {
@@ -30,27 +46,11 @@ function Home() {
         }
     };
 
-    const onRadioChange=(ev)=>{
+    const onRadioChange= useCallback((ev)=>{
         setSearchOption(ev.target.value);
-    }
+    },[]);
 
-    // eslint-disable-next-line no-console
-    // console.log(searchOption);
-
-    const renderResults = () => {
-        if (results && results.length === 0) {
-            return <div>No results</div>;
-        }
-
-        if (results && results.length > 0) {
-            return results[0].show
-            ?<ShowsGrid data={results}/>
-            :<ActorsGrid data={results}/>
-            
-        }
-
-        return null;
-    };
+    
 
     return (
         <MainPageLayout>
@@ -92,7 +92,7 @@ function Home() {
                 Search
             </button>
             </SearchButtonWrapper>
-            {renderResults()}
+            {renderResults(results)}
         </MainPageLayout>
     );
 }
